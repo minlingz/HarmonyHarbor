@@ -1,0 +1,44 @@
+<!-- templates/songs.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Song Data</title>
+</head>
+<body>
+    <h1>Song Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Artist ID</th>
+                <th>Artist Name</th>
+                <th>Duration</th>
+                <th>Release</th>
+                <th>Tempo</th>
+                <th>Time Signature</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Processed Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for song in songs %}
+                <tr>
+                    <td>{{ song[0] }}</td>
+                    <td>{{ song[1] }}</td>
+                    <td>{{ song[2] }}</td>
+                    <td>{{ song[3] }}</td>
+                    <td>{{ song[4] }}</td>
+                    <td>{{ song[5] }}</td>
+                    <td>{{ song[6] }}</td>
+                    <td>{{ song[7] }}</td>
+                    <td>{{ song[8] }}</td>
+                    <td>{{ song[9] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
