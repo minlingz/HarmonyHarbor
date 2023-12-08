@@ -33,11 +33,6 @@ def get_data_from_delta_table():
         "Content-Type": "application/json",
     }
 
-    params = {
-        "language": "sql",
-        "query": query,
-    }
-
     # sql query
     warehouse_id = "cfc6093cfe691c79"
 
