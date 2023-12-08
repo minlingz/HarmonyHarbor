@@ -1,7 +1,11 @@
 # Hamony Harbor (HL)
-:musical_note: Welcome to the Music Trend Analysis service! We offer a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. 
+:musical_note: Welcome to the Harmony Harbor service! We offer a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. 
 
-:heart_on_fire: Gone are the days of simple searches for songs and artists. Our Music Trend Analysis service revolutionizes the way you find music by offering advanced search options based on the tempo, duration, or time signature of tracks. Select the perfect soundtrack from our extensive library of over 100,000 songs to match the rhythm of your day, whether you’re energizing for a run, unwinding in the evening, or seeking the serene accompaniment for your reading time.
+:heart_on_fire: Discover a new way of exploring music with Harmony Harbor, where we transform the experience of finding your next favorite song. Dive into our vast collection of over 100,000 tracks and tailor your listening to fit exactly how you're feeling or what you're doing.
+
+- Fine-tune your search with filters like tempo, song duration, or time signature to find music that resonates with your current activity or mood, from a morning jog to a relaxed evening or those quiet moments lost in a book.
+
+- Interact with our intuitive chatbox that understands your emotions and preferences. Simply express how you feel, like "I'm feeling upbeat," and get three song recommendations with explanations on why they're the perfect fit for you.
 
 :bar_chart: Our analytical tools go beyond basic playlists; we provide insightful analyses into music trends. Discover how song duration and tempo have evolved through the years, reflecting shifts in musical styles. Explore our unique radar charts that profile top artists, contrasting aspects such as average song duration, tempo, and time signature, to reveal the distinctive musical imprint of each artist in their creations.
 
@@ -11,10 +15,10 @@
 
 :sparkles: Thanks goes to these wonderful people 
 
-- [Meixiang Du](link)
-- [Lin Hui](https://github.com/linhui7)
-- [Lisa Wang](link)
-- [Minling Zhou](link)
+- [Meixiang Du](link): the idea juggler and project wrangler
+- [Lin Hui](https://github.com/linhui7): the data whisperer and design Picasso
+- [Lisa Wang](link): the API ninja
+- [Minling Zhou](link): Our very own CTO, Sherlock Holmes with a debugger
 
 ## Description (ML)
 A publicly accessible auto-scaling container using Azure App Services and Flask ...
