@@ -1,5 +1,11 @@
 # Hamony Harbor (HL)
-Welcome to the Music Trend Analysis service, where we offer a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. Built with Python and Databricks, our service features a containerized approach with Container Registry for security, efficient data handling with top-notch libraries like Spark and Pandas, and robust infrastructure management via IaC tools. Dive into our high-performance service, and enjoy seamless updates through our CI/CD pipeline.
+Welcome to the Music Trend Analysis service! - we offer a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. 
+
+Gone are the days of simple searches for songs and artists. Our Music Trend Analysis service revolutionizes the way you find music by offering advanced search options based on the tempo, duration, or time signature of tracks. Select the perfect soundtrack from our extensive library of over 100,000 songs to match the rhythm of your day, whether you’re energizing for a run, unwinding in the evening, or seeking the serene accompaniment for your reading time.
+
+Our analytical tools go beyond basic playlists; we provide insightful analyses into music trends. Discover how song duration and tempo have evolved through the years, reflecting shifts in musical styles. Explore our unique radar charts that profile top artists, contrasting aspects such as average song duration, tempo, and time signature, to reveal the distinctive musical imprint of each artist in their creations.
+
+Built with Python and Databricks, our service features a containerized approach with Container Registry for security, efficient data handling with top-notch libraries like Spark and Pandas, and robust infrastructure management via IaC tools. Dive into our high-performance service, and enjoy seamless updates through our CI/CD pipeline.
 
 ## Description (ML)
 A publicly accessible auto-scaling container using Azure App Services and Flask ...
