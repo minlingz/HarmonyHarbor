@@ -9,14 +9,6 @@ import logging
 from openai import OpenAI
 
 
-key_vault_url = "https://dek.vault.azure.net/"
-credential = DefaultAzureCredential()
-secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
-openai_secret_value = secret_client.get_secret("OPENAIAPIKEY").value
-
-
-client = OpenAI(api_key=openai_secret_value)
-
 logging.basicConfig(filename="app.log", level=logging.ERROR)
 
 app = Flask(__name__)
@@ -87,6 +79,12 @@ def display_data():
 
 
 def get_completion(prompt, model="gpt-3.5-turbo"):
+    key_vault_url = "https://dek.vault.azure.net/"
+    credential = DefaultAzureCredential()
+    secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
+    openai_secret_value = secret_client.get_secret("OPENAIAPIKEY").value
+
+    client = OpenAI(api_key=openai_secret_value)
     prompt_complete = f"""
         Based on my preference below. give me a list of song names randomly.
 
