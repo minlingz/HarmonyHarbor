@@ -1,11 +1,21 @@
 # -*- coding: utf-8 -*-
 
-from flask import Flask, jsonify, render_template
+from flask import Flask, jsonify, render_template, request
 import requests
 import json
 from azure.identity import DefaultAzureCredential
 from azure.keyvault.secrets import SecretClient
 import logging
+from openai import OpenAI
+
+
+key_vault_url = "https://dek.vault.azure.net/"
+credential = DefaultAzureCredential()
+secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
+openai_secret_value = secret_client.get_secret("OPENAIAPIKEY").value
+
+
+client = OpenAI(api_key=openai_secret_value)
 
 logging.basicConfig(filename="app.log", level=logging.ERROR)
 
@@ -74,6 +84,48 @@ def get_data():
 def display_data():
     data = get_data_from_delta_table()
     return render_template("songs.html", songs=data)
+
+
+def get_completion(prompt, model="gpt-3.5-turbo"):
+    prompt_complete = f"""
+        Based on my preference below. give me a list of song names randomly.
+
+        The output should be a list of 3 song names. And with each song, include the artist name and the song's genre.
+        And art's duration, tempo. And the song's mood, best lyrics. And why I should listen to it. The reason should be related to user's preference.
+
+        At the end, say some warm words to the user.
+
+        At the very end. Say "Thank you for using our service. Keep interacting with me if you need more songs."
+
+        The user's preference is: {prompt}
+        The preference does not necessarily has a very explicit idea about music. You need to think about user's sentiment and background to understand the preference.
+    """
+    messages = [{"role": "user", "content": prompt_complete}]
+    try:
+        response = client.chat.completions.create(
+            model=model, messages=messages, temperature=0
+        )
+        # print(response.choices[0].message)
+
+        content = response.choices[0].message.content
+        return content
+    except Exception as e:  # if the model fails to return a response
+        print(f"Error: {e}")
+        logging.error(e)
+        return "Sorry, I don't know how to respond to that."
+
+
+@app.route("/get")
+def get_bot_response():
+    userText = request.args.get("msg")
+    response = get_completion(userText)
+    # return str(bot.get_response(userText))
+    return response
+
+
+@app.route("/chatbot")
+def chatbot():
+    return render_template("chatbot.html")
 
 
 @app.route("/")
