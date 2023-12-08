@@ -7,6 +7,12 @@
 
 :hammer_and_pick: Built with Python and Databricks, our service features a containerized approach with Container Registry for security, efficient data handling with top-notch libraries like Spark and Pandas, and robust infrastructure management via IaC tools. Dive into our high-performance service, and enjoy seamless updates through our CI/CD pipeline.
 
+## Contributors
+- [Meixiang Du](link)
+- [Lin Hui](https://github.com/linhui7)
+- [Lisa Wang](link)
+- [Minling Zhou](link)
+
 ## Description (ML)
 A publicly accessible auto-scaling container using Azure App Services and Flask ...
 
