@@ -18,7 +18,7 @@
 - [Meixiang Du](link): the idea juggler and project wrangler
 - [Lin Hui](https://github.com/linhui7): the data whisperer and design Picasso
 - [Lisa Wang](link): the API ninja
-- [Minling Zhou](link): Our very own CTO, Sherlock Holmes with a debugger
+- [Minling Zhou](link): the very own CTO, Sherlock Holmes with a debugger
 
 ## Description (ML)
 A publicly accessible auto-scaling container using Azure App Services and Flask ...
