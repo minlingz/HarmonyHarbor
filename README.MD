@@ -25,15 +25,10 @@ Azure provides several tools and services for IaC, with Azure Resource Manager (
 
 Using Infrastructure as Code (IaC) in Azure allows us to automate the provisioning and management of our infrastructure.
 
-* Create a template that includes App Service, App Service Plan, Application Insights, and deployments for HarmonyHarbor under the Harmony Harbor resource group.
-* Set parameters for the above resources as needed.
+* Create a template`template.json` that includes App Service, App Service Plan, Application Insights, and deployments for HarmonyHarbor under the Harmony Harbor resource group.
+* Set parameters `parameters.json`for the above resources as needed.
 * Deploy using Azure Custom deployment, using JSON templates and parameters.
-
-
-
-￼
-
-
+![ARM resource](https://github.com/minlingz/HarmonyHarbor/blob/main/ARM%20resource.png)
 
 
 ## Continuous Integration and Continuous Delivery (CI/CD) (ML)
