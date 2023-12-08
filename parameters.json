@@ -1,0 +1,60 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "subscriptionId": {
+            "value": "c022f7b5-b34e-402c-9375-5e70be1f4c96"
+        },
+        "resourceGroupName": {
+            "value": "706final"
+        },
+        "name": {
+            "value": "HarmonyHarbor"
+        },
+        "location": {
+            "value": "East US"
+        },
+        "hostingPlanName": {
+            "value": "asp-HarmonyHarbor"
+        },
+        "serverFarmResourceGroup": {
+            "value": "706final"
+        },
+        "alwaysOn": {
+            "value": false
+        },
+        "ftpsState": {
+            "value": "FtpsOnly"
+        },
+        "sku": {
+            "value": "Basic"
+        },
+        "skuCode": {
+            "value": "B1"
+        },
+        "numberOfWorkers": {
+            "value": "1"
+        },
+        "workerSize": {
+            "value": "0"
+        },
+        "workerSizeId": {
+            "value": "0"
+        },
+        "linuxFxVersion": {
+            "value": "DOCKER|706registry.azurecr.io/dev:latest"
+        },
+        "dockerRegistryUrl": {
+            "value": "https://706registry.azurecr.io"
+        },
+        "dockerRegistryUsername": {
+            "value": "706registry"
+        },
+        "dockerRegistryPassword": {
+            "value": null
+        },
+        "dockerRegistryStartupCommand": {
+            "value": ""
+        }
+    }
+}
