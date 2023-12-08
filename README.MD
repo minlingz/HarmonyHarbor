@@ -9,7 +9,7 @@
 
 ## Contributors
 
-:glowing_star: Thanks goes to these wonderful people 
+:sparkles: Thanks goes to these wonderful people 
 
 - [Meixiang Du](link)
 - [Lin Hui](https://github.com/linhui7)
