@@ -17,6 +17,24 @@ A publicly accessible auto-scaling container using Azure App Services and Flask 
 ## LLM (Lisa)
 
 ## Infrastructure as Code (IaC) (MX)
+Utilize an Infrastructure as Code (IaC) solution for infrastructure setup and management in Azure with Resource Manager (ARM) templates.
+
+IaC standardizes infrastructure deployment, fostering rapid, error-free scaling and collaboration through version control. This approach streamlines operations, optimizes costs, and ensures robust security and disaster recovery measures.
+
+Azure provides several tools and services for IaC, with Azure Resource Manager (ARM) templates being the primary choice. ARM templates are JSON files that define the resources you want to deploy, their configurations, and the relationships between them.
+
+Using Infrastructure as Code (IaC) in Azure allows us to automate the provisioning and management of our infrastructure.
+
+* Create a template that includes App Service, App Service Plan, Application Insights, and deployments for HarmonyHarbor under the Harmony Harbor resource group.
+* Set parameters for the above resources as needed.
+* Deploy using Azure Custom deployment, using JSON templates and parameters.
+
+
+
+￼
+
+
+
 
 ## Continuous Integration and Continuous Delivery (CI/CD) (ML)
 
