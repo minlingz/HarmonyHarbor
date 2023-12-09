@@ -88,15 +88,21 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
     prompt_complete = f"""
         Based on my preference below. give me a list of song names randomly.
 
-        The output should be a list of 3 song names. And with each song, include the artist name and the song's genre.
-        And art's duration, tempo. And the song's mood, best lyrics. And why I should listen to it. The reason should be related to user's preference.
+        The output should be a list of 3 song names. 
+        And with each song, include the artist name and the song's genre.
+        And art's duration, tempo. And the song's mood, best lyrics. 
+        And why I should listen to it. 
+        The reason should be related to user's preference.
 
         At the end, say some warm words to the user.
 
-        At the very end. Say "Thank you for using our service. Keep interacting with me if you need more songs."
+        At the very end. Say 
+        "Thank you for using our service. 
+        Keep interacting with me if you need more songs."
 
         The user's preference is: {prompt}
-        The preference does not necessarily has a very explicit idea about music. You need to think about user's sentiment and background to understand the preference.
+        The preference does not necessarily has a very explicit idea about music. 
+        Think about user's sentiment and background to understand the preference.
     """
     messages = [{"role": "user", "content": prompt_complete}]
     try:
