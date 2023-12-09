@@ -81,11 +81,15 @@ Using Infrastructure as Code (IaC) in Azure allows us to automate the provisioni
 
 
 ## Continuous Integration and Continuous Delivery (CI/CD) (ML)
+We use GitHub Actions to implement Continuous Integration and Continuous Delivery (CI/CD) for our service. It provides a workflow to automate the build, test, and deployment of our application.
+* Python package: `python-app.yml` - This workflow will run every time a new commit is pushed to main branch. It will install the dependencies, format and lint the code, run the tests, and upload the test results to GitHub.
+* Build and deploy container app to Azure Web App: `main_HarmonyHarbor.yml` - This workflow will run every time a new commit is pushed to main branch. It will build the container image, push it to Azure Container Registry, and deploy it to Azure App Service.
 
 ## GitHub Configurations (ML)
 ### Github Actions
-* Python package: `python-app.yml` - This workflow will run every time a new commit is pushed to main branch. It will install the dependencies, format and lint the code, run the tests, and upload the test results to GitHub.
-* Build and deploy container app to Azure Web App: `main_HarmonyHarbor.yml` - This workflow will run every time a new commit is pushed to main branch. It will build the container image, push it to Azure Container Registry, and deploy it to Azure App Service.
+We implemented two workflows in GitHub Actions:
+* `python-app.yml`: This workflow will run every time a new commit is pushed to main branch. It will install the dependencies, format and lint the code, run the tests, and upload the test results to GitHub.
+* `main_HarmonyHarbor.yml`: This workflow will run every time a new commit is pushed to main branch. It will build the container image, push it to Azure Container Registry, and deploy it to Azure App Service.
 
 ### Gutgub Secrets
 * `AzureAppService_ContainerUsername_9be46abaa20344908e13ba6bbe4d7065`: The username for the Azure App Service container registry.
