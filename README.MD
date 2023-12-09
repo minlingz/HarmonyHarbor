@@ -42,13 +42,24 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
 - Locust
 
 ## Microservices (ML)
-### Harmony Harbor
-* `app.py`: This is the main file of the Harmony Harbor service. It contains the Flask application and the endpoints for the service.
-* `requirements.txt`: This file contains the Python dependencies for the Harmony Harbor service.
-* `Dockerfile`: This file is used to build the Docker image for the Harmony Harbor service.
+### Harmony Harbor (https://harmonyharbor.azurewebsites.net/)
+* `app.py`: This file contains the code for the Harmony Harbor service. It uses the Flask framework to handle the HTTP requests and responses.
+    ```python
+    from flask import Flask, request, jsonify
+    app = Flask(__name__)
+    ```
+* `requirements.txt`: This file contains the Python dependencies for the Harmony Harbor service. It uses the `requests` library to make HTTP requests to the OpenAI API.
+    ```text
+    flask==3.0.0
+    black==23.3.0
+    ruff==0.0.285
+    requests==2.31.0
+    azure-identity
+    azure-keyvault-secrets
+    openai
+    ```
 
-### Harmony Harbor Chatbot
-* `app.py`: This file contains the code for the Harmony Harbor chatbot. It uses the OpenAI API to generate song recommendations based on the user's input.
+### Harmony Harbor Chatbot (https://harmonyharbor.azurewebsites.net/chatbot)
 
 ### Use of logging
 * `app.py`: This file contains the code for logging in the Harmony Harbor service. It uses the Python logging module to log the requests and responses.
