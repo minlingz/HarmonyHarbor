@@ -1,4 +1,8 @@
 # Harmony Harbor (HL)
+
+[![Python package](https://github.com/minlingz/HarmonyHarbor/actions/workflows/python-app.yml/badge.svg)](https://github.com/minlingz/HarmonyHarbor/actions/workflows/python-app.yml)
+[![Build and deploy container app to Azure Web App - HarmonyHarbor](https://github.com/minlingz/HarmonyHarbor/actions/workflows/main_HarmonyHarbor.yml/badge.svg)](https://github.com/minlingz/HarmonyHarbor/actions/workflows/main_HarmonyHarbor.yml)
+
 :musical_note: Welcome to the Harmony Harbor service! We offer a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. 
 
 :heart_on_fire: Discover a new way of exploring music with Harmony Harbor, where we transform the experience of finding your next favorite song. Dive into our vast collection of over 100,000 tracks and tailor your listening to fit exactly how you're feeling or what you're doing.
@@ -18,14 +22,64 @@
 - [Meixiang Du](link): the idea juggler and project wrangler
 - [Lin Hui](https://github.com/linhui7): the data whisperer and design Picasso
 - [Lisa Wang](link): the API ninja and our ever-ready helper
-- [Minling Zhou](link): our very own CTO, Sherlock Holmes with a debugger
+- [Minling Zhou](https://github.com/minlingz): our very own CTO, Sherlock Holmes with a debugger
 
 ## Description (ML)
-A publicly accessible auto-scaling container using Azure App Services and Flask ...
+Harmony Harbor is a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. It offers a unique way of exploring music, with a vast collection of over 100,000 tracks and a chatbox that understands your emotions and preferences. It also provides insightful analyses into music trends, with radar charts that profile top artists and line charts that trace the evolution of song duration and tempo through the years.
 
 ## Architecture Diagram (HL & ML)
 ![Alt text](<images/DE final Fall 2023.png>)
+
+## Technologies Used (ML)
+- Python, Flask
+- Pandas, NumPy, Matplotlib, Seaborn
+- Docker, Azure Container Registry, Azure App Service
+- Azure Databricks, Spark SQL, delta tables
+- Azure Key Vault, Azure Active Directory
+- Azure Resource Manager (ARM) templates
+- GitHub Actions, GitHub Secrets, GitHub Codespaces
+- OpenAI API
+- Locust
+
 ## Microservices (ML)
+### Harmony Harbor (https://harmonyharbor.azurewebsites.net/)
+* `app.py`: This file contains the code for the Harmony Harbor service. It uses the Flask framework to handle the HTTP requests and responses.
+    ```python
+    from flask import Flask, request, jsonify
+    app = Flask(__name__)
+    ```
+* `requirements.txt`: This file contains the Python dependencies for the Harmony Harbor service. It uses the `requests` library to make HTTP requests to the OpenAI API.
+    ```text
+    flask==3.0.0
+    black==23.3.0
+    ruff==0.0.285
+    requests==2.31.0
+    azure-identity
+    azure-keyvault-secrets
+    openai
+    ```
+
+### Harmony Harbor Chatbot (https://harmonyharbor.azurewebsites.net/chatbot)
+
+### Use of logging
+* `app.py`: This file contains the code for logging in the Harmony Harbor service. It uses the Python logging module to log the requests and responses.
+    ```python
+    logging.basicConfig(filename="app.log", level=logging.ERROR)
+    ```
+* Azure web app: We use Azure web app to host our service. It provides a centralized location for all our logs, with support for log streaming and log analysis.
+
+### Containerization
+* `Dockerfile`: This file is used to build the Docker image for the Harmony Harbor service. It uses the Python base image, installs the Python dependencies, and copies the source code into the image.
+    ```dockerfile
+    FROM python:3.9
+    WORKDIR /app
+    COPY requirements.txt /app
+    RUN pip install -r requirements.txt
+    COPY . /app
+    EXPOSE 9000
+    ENV LANG C.UTF-8
+    CMD ["python", "app.py"]
+    ```
 
 ## Data Engineering (HL)
 Our dataset is a subset of the Million Song Dataset, a collection of features and metadata for contemporary music tracks. It is available in the sample datasets included in the Databricks workspace. 
@@ -77,8 +131,44 @@ Using Infrastructure as Code (IaC) in Azure allows us to automate the provisioni
 
 
 ## Continuous Integration and Continuous Delivery (CI/CD) (ML)
+We use GitHub Actions to implement Continuous Integration and Continuous Delivery (CI/CD) for our service. It provides a workflow to automate the build, test, and deployment of our application.
+* Python package: `python-app.yml` - This workflow will run every time a new commit is pushed to main branch. It will install the dependencies, format and lint the code, run the tests, and upload the test results to GitHub.
+* Build and deploy container app to Azure Web App: `main_HarmonyHarbor.yml` - This workflow will run every time a new commit is pushed to main branch. It will build the container image, push it to Azure Container Registry, and deploy it to Azure App Service.
 
 ## GitHub Configurations (ML)
+### Github Actions
+We implemented two workflows in GitHub Actions:
+* `python-app.yml`: This workflow will run every time a new commit is pushed to main branch. It will install the dependencies, format and lint the code, run the tests, and upload the test results to GitHub.
+* `main_HarmonyHarbor.yml`: This workflow will run every time a new commit is pushed to main branch. It will build the container image, push it to Azure Container Registry, and deploy it to Azure App Service.
+
+### Guthub Secrets
+* `AzureAppService_ContainerUsername_9be46abaa20344908e13ba6bbe4d7065`: The username for the Azure App Service container registry.
+* `AzureAppService_ContainerPassword_aac379ebce6247ab9f1ca5883053939f`: The password for the Azure App Service container registry.
+
+### Github Codespaces
+* `devcontainer.json`: This file is used to configure the Codespace. It specifies the Dockerfile to use, the extensions to install, and the commands to run when the Codespace is created.
 
 ## Security (ML)
+The security of our service is ensured by the following measures:
+* `Container Registry`: We use Azure Container Registry to store and manage our container images. It provides a private registry for our Docker container images, with support for all types of container deployments. It integrates with Azure Container Instances, it also supports Azure Active Directory for authentication, so we can control who has access to our images.
+* `Azure Key Vault`: We use Azure Key Vault to store and manage our application API tokens integrated with Azure Databricks and OpenAI. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
 
+    Python code example in `app.py` to access Azure Key Vault:
+    ```python
+        key_vault_url = "https://dek.vault.azure.net/"
+        credential = DefaultAzureCredential()
+        secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
+        secret_value = secret_client.get_secret("HLDB").value
+    ```
+* `Azure Active Directory`: We use Azure Active Directory to manage our users and applications. It provides centralized identity management, with support for multi-factor authentication, single sign-on, and more. It also integrates with Azure Key Vault for authentication, so we can control who has access to our secrets.
+* `Github Secrets`: We use Github Secrets to store and manage our application secrets required by CI/CD pipeline with Azure Deployment Center. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
+
+    Github workflow example in `main_HarmonyHarbor.yml` in our code access Github Secrets:
+    ```yaml
+        - name: Log in to registry
+        uses: docker/login-action@v2
+        with:
+            registry: https://706registry.azurecr.io/
+            username: ${{ secrets.AzureAppService_ContainerUsername_9be46abaa20344908e13ba6bbe4d7065 }}
+            password: ${{ secrets.AzureAppService_ContainerPassword_aac379ebce6247ab9f1ca5883053939f }}
+    ```
