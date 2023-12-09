@@ -1,5 +1,4 @@
 from pyspark.sql.utils import AnalysisException
-import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 from math import pi
