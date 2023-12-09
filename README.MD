@@ -88,5 +88,23 @@ Using Infrastructure as Code (IaC) in Azure allows us to automate the provisioni
 The security of our service is ensured by the following measures:
 * `Container Registry`: We use Azure Container Registry to store and manage our container images. It provides a private registry for our Docker container images, with support for all types of container deployments. It integrates with Azure Container Instances, it also supports Azure Active Directory for authentication, so we can control who has access to our images.
 * `Azure Key Vault`: We use Azure Key Vault to store and manage our application API tokens integrated with Azure Databricks and OpenAI. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
+
+    Python code example in `app.py` to access Azure Key Vault:
+    ```python
+        key_vault_url = "https://dek.vault.azure.net/"
+        credential = DefaultAzureCredential()
+        secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
+        secret_value = secret_client.get_secret("HLDB").value
+    ```
 * `Azure Active Directory`: We use Azure Active Directory to manage our users and applications. It provides centralized identity management, with support for multi-factor authentication, single sign-on, and more. It also integrates with Azure Key Vault for authentication, so we can control who has access to our secrets.
 * `Github Secrets`: We use Github Secrets to store and manage our application secrets required by CI/CD pipeline with Azure Deployment Center. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
+
+    Github workflow example in `main_HarmonyHarbor.yml` in our code access Github Secrets:
+    ```yaml
+        - name: Log in to registry
+        uses: docker/login-action@v2
+        with:
+            registry: https://706registry.azurecr.io/
+            username: ${{ secrets.AzureAppService_ContainerUsername_9be46abaa20344908e13ba6bbe4d7065 }}
+            password: ${{ secrets.AzureAppService_ContainerPassword_aac379ebce6247ab9f1ca5883053939f }}
+    ```
