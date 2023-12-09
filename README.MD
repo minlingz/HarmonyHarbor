@@ -18,7 +18,7 @@
 - [Meixiang Du](link): the idea juggler and project wrangler
 - [Lin Hui](https://github.com/linhui7): the data whisperer and design Picasso
 - [Lisa Wang](link): the API ninja
-- [Minling Zhou](link): the very own CTO, Sherlock Holmes with a debugger
+- [Minling Zhou](link): our very own CTO, Sherlock Holmes with a debugger
 
 ## Description (ML)
 A publicly accessible auto-scaling container using Azure App Services and Flask ...
@@ -28,7 +28,18 @@ A publicly accessible auto-scaling container using Azure App Services and Flask 
 ## Microservices (ML)
 
 ## Data Engineering (HL)
-data set, analysis
+The dataset used in this project is a subset of the Million Song Dataset, a collection of features and metadata for contemporary music tracks. This dataset is available in the sample datasets included in the Databricks workspace.
+
+Below is a list of fields we included with each track in the database:
+- Artist Name
+- Duration
+- Release
+- Tempo
+- Time Signature
+- Title
+- Year
+
+
 
 ## Data Science (HL)
 plots , explain, why this analysis
