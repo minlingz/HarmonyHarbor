@@ -48,10 +48,10 @@ Try-except is used in the program to make sure file is read without error, and d
 ## Data Science (HL)
 We have two intriguing findings that stand out from a data science perspective.
 
-(plot1)
+![Artist Comparison](./images/Artists_Comparison.png)
 The first finding, depicted in a radar chart, encapsulates the distinctive musical signatures of various top artists by comparing average song duration, tempo, and time signature. This visual distillation demonstrates how data can unravel the unique stylistic elements that define an artist's body of work.
 
-(plot2)
+![Trend Analysis](./images/Trend_Analysis.png)
 The second revelation comes from a line chart that traces the ebb and flow of song characteristics through the ages. It charts the average duration and tempo of songs, offering a historical lens on how music has adapted to cultural currents and technological advancements from 1925 to 2010. This trend analysis is a testament to data science's capacity to chronicle and interpret the shifting tides of artistic expression.
 
 ## Load Testing (Lisa)
