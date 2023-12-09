@@ -1,4 +1,4 @@
-# Harmony Harbor (HL)
+# [Harmony Harbor] (https://harmonyharbor.azurewebsites.net/)
 
 [![Python package](https://github.com/minlingz/HarmonyHarbor/actions/workflows/python-app.yml/badge.svg)](https://github.com/minlingz/HarmonyHarbor/actions/workflows/python-app.yml)
 [![Build and deploy container app to Azure Web App - HarmonyHarbor](https://github.com/minlingz/HarmonyHarbor/actions/workflows/main_HarmonyHarbor.yml/badge.svg)](https://github.com/minlingz/HarmonyHarbor/actions/workflows/main_HarmonyHarbor.yml)
@@ -84,6 +84,7 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
 ## Data Engineering (HL)
 
 All notebooks are under `Notebooks` folder.
+
 Our dataset is a subset of the Million Song Dataset, a collection of features and metadata for contemporary music tracks. It is available in the sample datasets included in the Databricks workspace. 
 
 Below is a list of fields we included with each track in the database:
