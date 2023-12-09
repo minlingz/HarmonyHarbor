@@ -69,6 +69,10 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
     ```python
     logging.basicConfig(filename="app.log", level=logging.ERROR)
     ```
+
+    Example of log entry in `app.log`:
+    ![Alt text](images/app_log.png)
+
 * Azure web app: We use Azure web app to host our service. It provides a centralized location for all our logs, with support for log streaming and log analysis.
 
 ### Containerization
