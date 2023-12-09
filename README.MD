@@ -17,7 +17,7 @@
 
 - [Meixiang Du](link): the idea juggler and project wrangler
 - [Lin Hui](https://github.com/linhui7): the data whisperer and design Picasso
-- [Lisa Wang](link): the API ninja
+- [Lisa Wang](link): the API ninja and our ever-ready helper
 - [Minling Zhou](link): our very own CTO, Sherlock Holmes with a debugger
 
 ## Description (ML)
@@ -28,7 +28,7 @@ A publicly accessible auto-scaling container using Azure App Services and Flask 
 ## Microservices (ML)
 
 ## Data Engineering (HL)
-The dataset used in this project is a subset of the Million Song Dataset, a collection of features and metadata for contemporary music tracks. This dataset is available in the sample datasets included in the Databricks workspace.
+The dataset used in this project is a subset of the Million Song Dataset, a collection of features and metadata for contemporary music tracks. This dataset is available in the sample datasets included in the Databricks workspace. 
 
 Below is a list of fields we included with each track in the database:
 - Artist Name
@@ -39,10 +39,20 @@ Below is a list of fields we included with each track in the database:
 - Title
 - Year
 
+The transformed data is stored as Delta Lake file, as it's a reliable form with high performace.
 
+Spark SQL offers high-performance, scalable data processing across diverse sources, with seamless integration in the Apache Spark ecosystem. It's used for data processing in this project. 
+
+Try-except is used in the program to make sure file is read without error, and data quality is good to proceed with.
 
 ## Data Science (HL)
-plots , explain, why this analysis
+We have two intriguing findings that stand out from a data science perspective.
+
+(plot1)
+The first finding, depicted in a radar chart, encapsulates the distinctive musical signatures of various top artists by comparing average song duration, tempo, and time signature. This visual distillation demonstrates how data can unravel the unique stylistic elements that define an artist's body of work.
+
+(plot2)
+The second revelation comes from a line chart that traces the ebb and flow of song characteristics through the ages. It charts the average duration and tempo of songs, offering a historical lens on how music has adapted to cultural currents and technological advancements from 1925 to 2010. This trend analysis is a testament to data science's capacity to chronicle and interpret the shifting tides of artistic expression.
 
 ## Load Testing (Lisa)
 
