@@ -126,6 +126,11 @@ def chatbot():
     return render_template("chatbot.html")
 
 
+@app.route("/stats")
+def stats():
+    return render_template("stats.html")
+
+
 @app.route("/")
 def hello():
     return render_template("index.html")
