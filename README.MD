@@ -24,7 +24,7 @@
 A publicly accessible auto-scaling container using Azure App Services and Flask ...
 
 ## Architecture Diagram (HL & ML)
-
+![Alt text](<images/DE final Fall 2023.png>)
 ## Microservices (ML)
 
 ## Data Engineering (HL)
@@ -72,7 +72,8 @@ Using Infrastructure as Code (IaC) in Azure allows us to automate the provisioni
 * Create a template`template.json` that includes App Service, App Service Plan, Application Insights, and deployments for HarmonyHarbor under the Harmony Harbor resource group.
 * Set parameters `parameters.json`for the above resources as needed.
 * Deploy using Azure Custom deployment, using JSON templates and parameters.
-![ARM resource](https://github.com/minlingz/HarmonyHarbor/blob/main/ARM%20resource.png)
+
+![ARM resource](<images/ARM resource.png>)
 
 
 ## Continuous Integration and Continuous Delivery (CI/CD) (ML)
