@@ -42,6 +42,33 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
 - Locust
 
 ## Microservices (ML)
+### Harmony Harbor
+* `app.py`: This is the main file of the Harmony Harbor service. It contains the Flask application and the endpoints for the service.
+* `requirements.txt`: This file contains the Python dependencies for the Harmony Harbor service.
+* `Dockerfile`: This file is used to build the Docker image for the Harmony Harbor service.
+
+### Harmony Harbor Chatbot
+* `app.py`: This file contains the code for the Harmony Harbor chatbot. It uses the OpenAI API to generate song recommendations based on the user's input.
+
+### Use of logging
+* `app.py`: This file contains the code for logging in the Harmony Harbor service. It uses the Python logging module to log the requests and responses.
+    ```python
+    logging.basicConfig(filename="app.log", level=logging.ERROR)
+    ```
+* Azure web app: We use Azure web app to host our service. It provides a centralized location for all our logs, with support for log streaming and log analysis.
+
+### Containerization
+* `Dockerfile`: This file is used to build the Docker image for the Harmony Harbor service. It uses the Python base image, installs the Python dependencies, and copies the source code into the image.
+    ```dockerfile
+    FROM python:3.9
+    WORKDIR /app
+    COPY requirements.txt /app
+    RUN pip install -r requirements.txt
+    COPY . /app
+    EXPOSE 9000
+    ENV LANG C.UTF-8
+    CMD ["python", "app.py"]
+    ```
 
 ## Data Engineering (HL)
 Our dataset is a subset of the Million Song Dataset, a collection of features and metadata for contemporary music tracks. It is available in the sample datasets included in the Databricks workspace. 
