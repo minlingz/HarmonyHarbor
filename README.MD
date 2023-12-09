@@ -25,10 +25,22 @@
 - [Minling Zhou](https://github.com/minlingz): our very own CTO, Sherlock Holmes with a debugger
 
 ## Description (ML)
-A publicly accessible auto-scaling container using Azure App Services and Flask ...
+Harmony Harbor is a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. It offers a unique way of exploring music, with a vast collection of over 100,000 tracks and a chatbox that understands your emotions and preferences. It also provides insightful analyses into music trends, with radar charts that profile top artists and line charts that trace the evolution of song duration and tempo through the years.
 
 ## Architecture Diagram (HL & ML)
 ![Alt text](<images/DE final Fall 2023.png>)
+
+## Technologies Used (ML)
+- Python, Flask
+- Pandas, NumPy, Matplotlib, Seaborn
+- Docker, Azure Container Registry, Azure App Service
+- Azure Databricks, Spark SQL, delta tables
+- Azure Key Vault, Azure Active Directory
+- Azure Resource Manager (ARM) templates
+- GitHub Actions, GitHub Secrets, GitHub Codespaces
+- OpenAI API
+- Locust
+
 ## Microservices (ML)
 
 ## Data Engineering (HL)
@@ -91,7 +103,7 @@ We implemented two workflows in GitHub Actions:
 * `python-app.yml`: This workflow will run every time a new commit is pushed to main branch. It will install the dependencies, format and lint the code, run the tests, and upload the test results to GitHub.
 * `main_HarmonyHarbor.yml`: This workflow will run every time a new commit is pushed to main branch. It will build the container image, push it to Azure Container Registry, and deploy it to Azure App Service.
 
-### Gutgub Secrets
+### Guthub Secrets
 * `AzureAppService_ContainerUsername_9be46abaa20344908e13ba6bbe4d7065`: The username for the Azure App Service container registry.
 * `AzureAppService_ContainerPassword_aac379ebce6247ab9f1ca5883053939f`: The password for the Azure App Service container registry.
 
