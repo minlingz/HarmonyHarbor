@@ -82,6 +82,8 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
     ```
 
 ## Data Engineering (HL)
+
+All notebooks are under `Notebooks` folder.
 Our dataset is a subset of the Million Song Dataset, a collection of features and metadata for contemporary music tracks. It is available in the sample datasets included in the Databricks workspace. 
 
 Below is a list of fields we included with each track in the database:
