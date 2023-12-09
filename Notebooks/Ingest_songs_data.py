@@ -1,5 +1,6 @@
 from pyspark.sql.types import DoubleType, IntegerType, StringType, \
     StructType, StructField
+import pyspark as spark
 
 # Define variables used in the code below
 file_path = "/databricks-datasets/songs/data-001/"
