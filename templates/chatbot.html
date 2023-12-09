@@ -7,10 +7,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <style>
         * {
-            box-sizing: border-box
+            box-sizing: border-box;
         }
 
-        /* Set height of body and the document to 100% */
         body,
         html {
             height: 100%;
@@ -18,18 +17,47 @@
             font-family: Arial;
         }
 
-        #chatbox {
-            margin-left: auto;
-            margin-right: auto;
+        #container {
+            height: 100%;
+            display: flex;
+            background-color: black;
+            /* Add padding to create space between the items */
+        }
+
+        #imageContainer {
             width: 40%;
-            margin-top: 60px;
+            height: 100%;
+            overflow: hidden;
+            /* Ensures that the image doesn't overflow the container */
+        }
+
+        #botImage {
+            width: auto;
+            height: 100%;
+            object-fit: contain;
+            /* Ensures that the image fits without distortion */
+        }
+
+        .boxed {
+            width: 50%;
+            height: 100%;
+            border: 1px solid green;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #chatbox {
+            flex: 1;
+            /* Make the chatbox flexible to take up remaining space */
+            width: 100%;
+            padding: 10px;
+            overflow-y: auto;
+            /* Enable vertical scrollbar for long content */
         }
 
         #userInput {
-            margin-left: auto;
-            margin-right: auto;
-            width: 40%;
-            margin-top: 60px;
+            padding: 10px;
+            height: 10%;
         }
 
         #textInput {
@@ -40,11 +68,10 @@
             font-size: 17px;
         }
 
-        .userText {
-            color: white;
+        .userText,
+        .botText {
             font-family: monospace;
             font-size: 17px;
-            text-align: right;
             line-height: 30px;
         }
 
@@ -54,42 +81,20 @@
             border-radius: 2px;
         }
 
-        .botText {
-            color: white;
-            font-family: monospace;
-            font-size: 17px;
-            text-align: left;
-            line-height: 30px;
-        }
-
         .botText span {
-            background-color: #4169e1;
+            background-color: olivedrab;
             padding: 10px;
             border-radius: 2px;
         }
-
-        #tidbit {
-            position: absolute;
-            bottom: 0;
-            right: 0;
-            width: 300px;
-        }
-
-        .boxed {
-            margin-left: auto;
-            margin-right: auto;
-            width: 78%;
-            margin-top: 60px;
-            border: 1px solid green;
-        }
     </style>
+
 </head>
 
 <body>
-    <div>
-        <h1 align="center"><b>Music Recommendation Chatbot</b></h1>
-        <h4 align="center"><b>Please start your personalized interaction with the chatbot</b></h4>
-        <p align="center"><img src="static\\chatbot1.png" alt="Python-BOT" height="210" width="220"></p>
+    <div id="container">
+        <div id="imageContainer">
+            <img id="botImage" src="{{ url_for('static', filename='images/chatbot_scaled.png') }}" alt="Python-BOT">
+        </div>
         <div class="boxed">
             <div>
                 <div id="chatbox">
