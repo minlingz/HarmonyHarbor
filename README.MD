@@ -1,7 +1,10 @@
-# [Harmony Harbor] (https://harmonyharbor.azurewebsites.net/)
+# Harmony Harbor
 
 [![Python package](https://github.com/minlingz/HarmonyHarbor/actions/workflows/python-app.yml/badge.svg)](https://github.com/minlingz/HarmonyHarbor/actions/workflows/python-app.yml)
+
 [![Build and deploy container app to Azure Web App - HarmonyHarbor](https://github.com/minlingz/HarmonyHarbor/actions/workflows/main_HarmonyHarbor.yml/badge.svg)](https://github.com/minlingz/HarmonyHarbor/actions/workflows/main_HarmonyHarbor.yml)
+
+[Link](https://harmonyharbor.azurewebsites.net/)
 
 :musical_note: Welcome to the Harmony Harbor service! We offer a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. 
 
