@@ -28,7 +28,7 @@ A publicly accessible auto-scaling container using Azure App Services and Flask 
 ## Microservices (ML)
 
 ## Data Engineering (HL)
-The dataset used in this project is a subset of the Million Song Dataset, a collection of features and metadata for contemporary music tracks. This dataset is available in the sample datasets included in the Databricks workspace. 
+Our dataset is a subset of the Million Song Dataset, a collection of features and metadata for contemporary music tracks. It is available in the sample datasets included in the Databricks workspace. 
 
 Below is a list of fields we included with each track in the database:
 - Artist Name
@@ -39,7 +39,7 @@ Below is a list of fields we included with each track in the database:
 - Title
 - Year
 
-The transformed data is stored as Delta Lake file, as it's a reliable form with high performace.
+The transformed data is stored as Delta Lake file, as it's a reliable form with high performance.
 
 Spark SQL offers high-performance, scalable data processing across diverse sources, with seamless integration in the Apache Spark ecosystem. It's used for data processing in this project. 
 
