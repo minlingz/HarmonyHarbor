@@ -22,7 +22,7 @@
 - [Meixiang Du](link): the idea juggler and project wrangler
 - [Lin Hui](https://github.com/linhui7): the data whisperer and design Picasso
 - [Lisa Wang](link): the API ninja and our ever-ready helper
-- [Minling Zhou](link): our very own CTO, Sherlock Holmes with a debugger
+- [Minling Zhou](https://github.com/minlingz): our very own CTO, Sherlock Holmes with a debugger
 
 ## Description (ML)
 A publicly accessible auto-scaling container using Azure App Services and Flask ...
@@ -85,4 +85,8 @@ Using Infrastructure as Code (IaC) in Azure allows us to automate the provisioni
 ## GitHub Configurations (ML)
 
 ## Security (ML)
-
+The security of our service is ensured by the following measures:
+* `Container Registry`: We use Azure Container Registry to store and manage our container images. It provides a private registry for our Docker container images, with support for all types of container deployments. It integrates with Azure Container Instances, it also supports Azure Active Directory for authentication, so we can control who has access to our images.
+* `Azure Key Vault`: We use Azure Key Vault to store and manage our application API tokens integrated with Azure Databricks and OpenAI. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
+* `Azure Active Directory`: We use Azure Active Directory to manage our users and applications. It provides centralized identity management, with support for multi-factor authentication, single sign-on, and more. It also integrates with Azure Key Vault for authentication, so we can control who has access to our secrets.
+* `Github Secrets`: We use Github Secrets to store and manage our application secrets required by CI/CD pipeline with Azure Deployment Center. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
