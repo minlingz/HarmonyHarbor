@@ -83,6 +83,16 @@ Using Infrastructure as Code (IaC) in Azure allows us to automate the provisioni
 ## Continuous Integration and Continuous Delivery (CI/CD) (ML)
 
 ## GitHub Configurations (ML)
+### Github Actions
+* Python package: `python-app.yml` - This workflow will run every time a new commit is pushed to main branch. It will install the dependencies, format and lint the code, run the tests, and upload the test results to GitHub.
+* Build and deploy container app to Azure Web App: `main_HarmonyHarbor.yml` - This workflow will run every time a new commit is pushed to main branch. It will build the container image, push it to Azure Container Registry, and deploy it to Azure App Service.
+
+### Gutgub Secrets
+* `AzureAppService_ContainerUsername_9be46abaa20344908e13ba6bbe4d7065`: The username for the Azure App Service container registry.
+* `AzureAppService_ContainerPassword_aac379ebce6247ab9f1ca5883053939f`: The password for the Azure App Service container registry.
+
+### Github Codespaces
+* `devcontainer.json`: This file is used to configure the Codespace. It specifies the Dockerfile to use, the extensions to install, and the commands to run when the Codespace is created.
 
 ## Security (ML)
 The security of our service is ensured by the following measures:
