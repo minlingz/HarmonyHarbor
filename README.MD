@@ -93,11 +93,13 @@ Below is a list of fields we included with each track in the database:
 - Title
 - Year
 
+The ETL pipeline leverages Databricks features to explore and process a raw dataset, utilizing Databricks notebooks to ingest, transform, and load the data into target tables. Additionally, it incorporates error handling, data validation, and automation through a Databricks job for streamlined data processing and visualization.
+
 The transformed data is stored as Delta Lake file, as it's a reliable form with high performance.
 
-Spark SQL offers high-performance, scalable data processing across diverse sources, with seamless integration in the Apache Spark ecosystem. It's used for data processing in this project. 
+Spark SQL offers high-performance, scalable data processing across diverse sources, with seamless integration in the Apache Spark ecosystem. 
 
-Try-except is used in the program to make sure file is read without error, and data quality is good to proceed with.
+AI tools, such as Copilot and ChatGPT, played a crucial role in streamlining the ETL pipeline by providing valuable insights and recommendations on data cleaning techniques, effective error handling strategies, and the selection of appropriate graph types for data analysis. These tools significantly enhanced the efficiency and quality of the data processing workflow, ultimately leading to more informed and accurate decision-making
 
 ## Data Science (HL)
 We have two intriguing findings that stand out from a data science perspective.
