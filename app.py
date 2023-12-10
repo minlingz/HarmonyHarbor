@@ -19,7 +19,7 @@ delta_table_url = (
 
 
 # @app.route("/get_data")
-def get_data_from_delta_table():
+def get_data_from_delta_table(q="SELECT * FROM prepared_song_data LIMIT 10"):
     key_vault_url = "https://dek.vault.azure.net/"
     credential = DefaultAzureCredential()
 
@@ -27,7 +27,7 @@ def get_data_from_delta_table():
 
     secret_value = secret_client.get_secret("HLDB").value
 
-    query = "SELECT * FROM prepared_song_data LIMIT 10"
+    query = q
     # query = "SELECT * FROM test"
     # Headers for Databricks REST API request
     headers = {
@@ -63,6 +63,13 @@ def get_data_from_delta_table():
             + " and response: "
             + str(response.json())
         }
+
+
+@app.route("/execute_query", methods=["POST"])
+def execute_query():
+    q = request.form.get("queryInput")
+    data = get_data_from_delta_table(q)
+    return render_template("songs.html", songs=data)
 
 
 @app.route("/get_data", methods=["GET"])

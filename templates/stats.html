@@ -62,6 +62,17 @@
             margin: 1em 0;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
+
+        #queryFormContainer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .queryForm {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -84,6 +95,14 @@
         <h2>Artists Styles</h2>
         <img src="{{ url_for('static', filename='images/Artists Comparison.png') }}" alt="Description of the image">
     </section>
+    
+    <div id="queryFormContainer">
+        <form action="/execute_query" method="POST" class="queryForm">
+            <label for="queryInput">Enter SQL Query:</label>
+            <input type="text" id="queryInput" name="queryInput">
+            <input type="submit" value="Execute Query">
+        </form>
+    </div>
 
     <footer>
         <section id="contact">
