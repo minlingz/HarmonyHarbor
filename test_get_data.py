@@ -1,8 +1,5 @@
 import unittest
-from unittest.mock import patch, MagicMock
-
-from azure.identity import DefaultAzureCredential
-from azure.keyvault.secrets import SecretClient
+from unittest.mock import patch
 
 import app  # Import the module where your actual code resides
 
@@ -68,7 +65,8 @@ class TestGetDataFromDeltaTable(unittest.TestCase):
         self.assertEqual(
             result,
             {
-                "error": "Failed to retrieve data from Delta table, check status code: 500 and response: {'error': 'Some error message'}"
+                "error": "Failed to retrieve data from Delta table, "
+                "check status code: 500 and response: {'error': 'Some error message'}"
             },
         )
 
