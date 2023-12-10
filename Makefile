@@ -5,7 +5,7 @@ install:
 	pip install -r requirements.txt
 
 test:
-	#test goes here
+	python -m unittest discover -v   
 
 format:	
 	black .
