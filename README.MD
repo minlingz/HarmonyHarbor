@@ -71,9 +71,14 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
     ```
 
     Example of log entry in `app.log`:
+
     ![Alt text](images/app_log.png)
 
-* Azure web app: We use Azure web app to host our service. It provides a centralized location for all our logs, with support for log streaming and log analysis.
+* Azure App Serfvices: We use Azure web app to host our service. It provides a centralized location for all our logs, with support for log streaming and log analysis.
+
+    Example of log stream in Azure app service:
+    
+    ![Alt text](images/App_log_strem.png)
 
 ### Containerization
 * `Dockerfile`: This file is used to build the Docker image for the Harmony Harbor service. It uses the Python base image, installs the Python dependencies, and copies the source code into the image.
