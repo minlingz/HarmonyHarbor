@@ -45,7 +45,16 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
 - Locust
 
 ## Microservices
-### Harmony Harbor (https://harmonyharbor.azurewebsites.net/)
+
+### Harmony Harbor Microservice
+
+* Statistics Microservice
+It returns the SQL query results from the Delta Lake table `prepared_song_data` in Azure Databricks. It uses the `requests` library to make HTTP requests to the Azure Databricks REST API.
+
+* Chatbot Microservice
+It returns the song recommendations based on the user input. It uses the `requests` library to make HTTP requests to the OpenAI API.
+
+### File Structure
 * `app.py`: This file contains the code for the Harmony Harbor service. It uses the Flask framework to handle the HTTP requests and responses.
     ```python
     from flask import Flask, request, jsonify
@@ -61,8 +70,7 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
     azure-keyvault-secrets
     openai
     ```
-
-### Harmony Harbor Chatbot (https://harmonyharbor.azurewebsites.net/chatbot)
+* `Dockerfile`: This file is used to build the Docker image for the Harmony Harbor service. It uses the Python base image, installs the Python dependencies, and copies the source code into the image.
 
 ### Use of logging
 * `app.py`: This file contains the code for logging in the Harmony Harbor service. It uses the Python logging module to log the requests and responses.
@@ -163,7 +171,8 @@ We implemented two workflows in GitHub Actions:
 * `AzureAppService_ContainerPassword_aac379ebce6247ab9f1ca5883053939f`: The password for the Azure App Service container registry.
 
 ### Github Codespaces
-* `devcontainer.json`: This file is used to configure the Codespace. It specifies the Dockerfile to use, the extensions to install, and the commands to run when the Codespace is created.
+* `devcontainer.json`: This file is used to configure the Codespace. It specifies the `Dockerfile` to use, the extensions to install through `requirements.txt`, and the commands to run when the Codespace is created.
+* `launch.json`: This file is used to configure the debugger. It specifies the Python interpreter to use and the environment variables to set.
 
 ## Security 
 The security of our service is ensured by the following measures:
