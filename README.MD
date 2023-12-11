@@ -184,3 +184,6 @@ The security of our service is ensured by the following measures:
             username: ${{ secrets.AzureAppService_ContainerUsername_9be46abaa20344908e13ba6bbe4d7065 }}
             password: ${{ secrets.AzureAppService_ContainerPassword_aac379ebce6247ab9f1ca5883053939f }}
     ```
+
+## Video Demo
+https://youtu.be/52EF1nJgdME
