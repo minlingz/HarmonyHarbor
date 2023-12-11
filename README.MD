@@ -26,6 +26,7 @@
 - [Lin Hui](https://github.com/linhui7): the data whisperer and design Picasso
 - [Lisa Wang](link): the API ninja and our ever-ready helper
 - [Minling Zhou](https://github.com/minlingz): our very own CTO, Sherlock Holmes with a debugger
+- Copilot: our AI assistant and documentation expert
 
 ## Architecture Diagram
 ![Alt text](<images/DE final Fall 2023.png>)
@@ -95,6 +96,8 @@
     ENV LANG C.UTF-8
     CMD ["python", "app.py"]
     ```
+### Autoscaling
+We use Azure App Service to host our service. It provides autoscaling capabilities, with support for autoscaling based on CPU percentage, memory usage, and HTTP queue length.
 
 ## Data Engineering
 
@@ -181,7 +184,7 @@ The security of our service is ensured by the following measures:
         secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
         secret_value = secret_client.get_secret("HLDB").value
     ```
-* `Azure Active Directory`: We use Azure Active Directory to manage our users and applications. It provides centralized identity management, with support for multi-factor authentication, single sign-on, and more. It also integrates with Azure Key Vault for authentication, so we can control who has access to our secrets. We created a user group `usergroup_harmonyharbor` and added all our team members to the group. We then granted the group access to the Azure resource group `HarmonyHarbor`.
+* `Azure Active Directory`: We use Azure Active Directory to manage our users and applications. It provides centralized identity management, with support for multi-factor authentication, single sign-on, and more. It also integrates with Azure Key Vault for authentication, so we can control who has access to our secrets. We created a user group `usergroup_harmonyharbor` and added all our team members to the group. We then granted the group access to the Azure resource group `706final`.
 * `Github Secrets`: We use Github Secrets to store and manage our application secrets required by CI/CD pipeline with Azure Deployment Center. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
 
     Github workflow example in `main_HarmonyHarbor.yml` in our code access Github Secrets:
