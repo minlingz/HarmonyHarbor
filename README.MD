@@ -27,9 +27,6 @@
 - [Lisa Wang](link): the API ninja and our ever-ready helper
 - [Minling Zhou](https://github.com/minlingz): our very own CTO, Sherlock Holmes with a debugger
 
-## Description
-Harmony Harbor is a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. It offers a unique way of exploring music, with a vast collection of over 100,000 tracks and a chatbox that understands your emotions and preferences. It also provides insightful analyses into music trends, with radar charts that profile top artists and line charts that trace the evolution of song duration and tempo through the years.
-
 ## Architecture Diagram
 ![Alt text](<images/DE final Fall 2023.png>)
 
