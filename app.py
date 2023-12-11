@@ -113,7 +113,6 @@ def get_completion(prompt, model="gpt-3.5-turbo"):
         Keep interacting with me if you need more songs."
 
         Don't print of bulk of responses, make it easier to read with new lines.
-        format your answer in html string, but don't use html tags, it's just a text box in browser.
     """
     messages = [{"role": "user", "content": prompt_complete}]
     try:

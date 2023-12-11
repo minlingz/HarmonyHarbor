@@ -10,7 +10,8 @@ class MyLocustUser(HttpUser):
     def execute_query(self):
         headers = {"Content-Type": "application/x-www-form-urlencoded"}
         data = {
-            "queryInput": "SELECT * FROM prepared_song_data WHERE time_signature = 4 AND tempo between 100 and 140"
+            "queryInput": "SELECT * FROM prepared_song_data WHERE time_signature = 4 "
+            "AND tempo BETWEEN 100 AND 140"
         }
         self.client.post("/execute_query", data=data, headers=headers)
 
