@@ -138,7 +138,7 @@ The second revelation comes from a line chart that traces the ebb and flow of so
 * Integrated `ChatGPT 3.5 Turbo` for language processing by inplementing a chatbot using `OpenAI API` package.
 * Developed a recommendation system for song suggestions, utilizing `prompt engineering` to refine user input.
 * Created a visually appealing webpage with` HTML`, `CSS`, and `JavaScript`, ensuring responsiveness and user-friendliness.
-* Collaborated with `Midjouney` to generate illustrations and integrated visually appealing graphics for a better user experience.
+* Collaborated with `Midjourney` to generate illustrations and integrated visually appealing graphics for a better user experience.
 
 ## Load Testing
 ![Alt text](images/locust_demo.png)
@@ -150,7 +150,7 @@ The second revelation comes from a line chart that traces the ebb and flow of so
 ![Alt text](images/response.png)
 ![Alt text](images/responsetime.png)
 * Web app hosted on Azure cloud with scaling capacity, adjusting quotas based on load.
-* Utilized Azure Web App Service metrics board for monitoring performance. Overall, the application handled 60k responses in 5 hours with an average response time consistently below 0.1 seconds.
+* Utilized Azure Web App Service metrics board for monitoring performance. Overall, the application handled 60k responses in 5 hours with an average response time consistently below 0.1 seconds. CPU and memory usage are also monitored.
 
 ## Infrastructure as Code (IaC)
 Utilize an Infrastructure as Code (IaC) solution for infrastructure setup and management in Azure with Resource Manager (ARM) templates.
