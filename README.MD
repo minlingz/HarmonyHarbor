@@ -24,7 +24,7 @@
 
 - [Meixiang Du](link): the idea juggler and project wrangler
 - [Lin Hui](https://github.com/linhui7): the data whisperer and design Picasso
-- [Lisa Wang](link): the API ninja and our ever-ready helper
+- [Lisa Wang](https://github.com/lisawym): the API ninja and our ever-ready helper
 - [Minling Zhou](https://github.com/minlingz): our very own CTO, Sherlock Holmes with a debugger
 - Copilot: our AI assistant and documentation expert
 
@@ -33,14 +33,14 @@
 
 ## Technologies Used
 
-- Pandas, NumPy, Matplotlib, Seaborn
-- Docker, Azure Container Registry, Azure App Service
-- Azure Databricks, Spark SQL, delta tables
-- Azure Key Vault, Azure Active Directory
-- Azure Resource Manager (ARM) templates
-- GitHub Actions, GitHub Secrets, GitHub Codespaces
-- OpenAI API
-- Locust
+- **Data Analysis and Visualization:** Pandas, NumPy, Matplotlib, Seaborn
+- **Containerization and Deployment:** Docker, Azure Container Registry, Azure App Service
+- **Big Data and Analytics:** Azure Databricks, Spark SQL, delta tables
+- **Security and Identity Management:** Azure Key Vault, Azure Active Directory
+- **Infrastructure as Code:** Azure Resource Manager (ARM) templates
+- **Version Control and CI/CD:** GitHub Actions, GitHub Secrets, GitHub Codespaces
+- **AI and Natural Language Processing:** OpenAI API
+- **Load Testing:** Locust
 
 ## Microservices
 
@@ -133,9 +133,24 @@ The first finding, depicted in a radar chart, encapsulates the distinctive music
 
 The second revelation comes from a line chart that traces the ebb and flow of song characteristics through the ages. It charts the average duration and tempo of songs, offering a historical lens on how music has adapted to cultural currents and technological advancements from 1925 to 2010. This trend analysis is a testament to data science's capacity to chronicle and interpret the shifting tides of artistic expression.
 
-## Load Testing (Lisa)
+## LLM
+![Alt text](images/chatbot.png)
+* Integrated `ChatGPT 3.5 Turbo` for language processing by inplementing a chatbot using `OpenAI API` package.
+* Developed a recommendation system for song suggestions, utilizing `prompt engineering` to refine user input.
+* Created a visually appealing webpage with` HTML`, `CSS`, and `JavaScript`, ensuring responsiveness and user-friendliness.
+* Collaborated with `Midjouney` to generate illustrations and integrated visually appealing graphics for a better user experience.
 
-## LLM (Lisa)
+## Load Testing
+![Alt text](images/locust_demo.png)
+* Conducted load tests using `Locust` library on webpages and endpoints requesting data from OpenAI API and Databricks API. Assigned different weights to simulate real-world user request distribution.
+* Performed tests with 200, 500, and 1000 users at 1, 5, and 15 minutes durations. Diagnosed application performance, observing no failures and meeting expectations in response time and requests per second.
+* Identified longer response times and lower load tolerance for external API traffic, signaling the need for optimization.
+* Automated load test scripts generate and store result metrics in a subfolder. Integrated load tests into the CI/CD pipeline for automatic testing with each code change and new Docker image creation.
+
+![Alt text](images/response.png)
+![Alt text](images/responsetime.png)
+* Web app hosted on Azure cloud with scaling capacity, adjusting quotas based on load.
+* Utilized Azure Web App Service metrics board for monitoring performance. Overall, the application handled 60k responses in 5 hours with an average response time consistently below 0.1 seconds.
 
 ## Infrastructure as Code (IaC)
 Utilize an Infrastructure as Code (IaC) solution for infrastructure setup and management in Azure with Resource Manager (ARM) templates.

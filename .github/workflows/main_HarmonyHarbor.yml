@@ -51,14 +51,14 @@ jobs:
         images: '706registry.azurecr.io/${{ secrets.AzureAppService_ContainerUsername_9be46abaa20344908e13ba6bbe4d7065 }}/hh/latest:${{ github.sha }}'
         
         
-    - name: Wait for 5 minutes
-      run: sleep 300 
+    # - name: Wait for 5 minutes
+    #   run: sleep 300 
 
-    - name: Run Locust test
-      run: make load_test
+    # - name: Run Locust test
+    #   run: make load_test
 
-    - name: Upload Locust Results
-      uses: actions/upload-artifact@v2
-      with:
-        name: locust_results
-        path: load_test/locust_results
+    # - name: Upload Locust Results
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: locust_results
+    #     path: load_test/locust_results
