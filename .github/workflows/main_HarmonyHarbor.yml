@@ -55,8 +55,7 @@ jobs:
       run: sleep 300 
 
     - name: Run Locust test
-      run: |
-        locust -f locustfile.py --headless -u 1 -r 1 -t 1m --csv=output
+      run: make load_test
 
     - name: Upload Locust Results
       uses: actions/upload-artifact@v2
