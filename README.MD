@@ -26,15 +26,13 @@
 - [Lin Hui](https://github.com/linhui7): the data whisperer and design Picasso
 - [Lisa Wang](link): the API ninja and our ever-ready helper
 - [Minling Zhou](https://github.com/minlingz): our very own CTO, Sherlock Holmes with a debugger
+- Copilot: our AI assistant and documentation expert
 
-## Description (ML)
-Harmony Harbor is a microservice-based web application capable of analyzing and adapting to the latest music trends to suit your taste. It offers a unique way of exploring music, with a vast collection of over 100,000 tracks and a chatbox that understands your emotions and preferences. It also provides insightful analyses into music trends, with radar charts that profile top artists and line charts that trace the evolution of song duration and tempo through the years.
-
-## Architecture Diagram (HL & ML)
+## Architecture Diagram
 ![Alt text](<images/DE final Fall 2023.png>)
 
-## Technologies Used (ML)
-- Python, Flask
+## Technologies Used
+
 - Pandas, NumPy, Matplotlib, Seaborn
 - Docker, Azure Container Registry, Azure App Service
 - Azure Databricks, Spark SQL, delta tables
@@ -44,8 +42,15 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
 - OpenAI API
 - Locust
 
-## Microservices (ML)
-### Harmony Harbor (https://harmonyharbor.azurewebsites.net/)
+## Microservices
+
+### Harmony Harbor Microservice
+
+* `Statistics` Microservice - It returns the SQL query results from the Delta Lake table `prepared_song_data` in Azure Databricks. It uses the `requests` library to make HTTP requests to the Azure Databricks REST API.
+
+* `Chatbot` Microservice - It returns the song recommendations based on the user input. It uses the `requests` library to make HTTP requests to the OpenAI API.
+
+### File Structure
 * `app.py`: This file contains the code for the Harmony Harbor service. It uses the Flask framework to handle the HTTP requests and responses.
     ```python
     from flask import Flask, request, jsonify
@@ -61,8 +66,7 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
     azure-keyvault-secrets
     openai
     ```
-
-### Harmony Harbor Chatbot (https://harmonyharbor.azurewebsites.net/chatbot)
+* `Dockerfile`: This file is used to build the Docker image for the Harmony Harbor service. It uses the Python base image, installs the Python dependencies, and copies the source code into the image.
 
 ### Use of logging
 * `app.py`: This file contains the code for logging in the Harmony Harbor service. It uses the Python logging module to log the requests and responses.
@@ -71,9 +75,14 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
     ```
 
     Example of log entry in `app.log`:
+
     ![Alt text](images/app_log.png)
 
-* Azure web app: We use Azure web app to host our service. It provides a centralized location for all our logs, with support for log streaming and log analysis.
+* Azure App Serfvices: We use Azure web app to host our service. It provides a centralized location for all our logs, with support for log streaming and log analysis.
+
+    Example of log stream in Azure app service:
+    
+    ![Alt text](images/App_log_strem.png)
 
 ### Containerization
 * `Dockerfile`: This file is used to build the Docker image for the Harmony Harbor service. It uses the Python base image, installs the Python dependencies, and copies the source code into the image.
@@ -87,8 +96,10 @@ Harmony Harbor is a microservice-based web application capable of analyzing and 
     ENV LANG C.UTF-8
     CMD ["python", "app.py"]
     ```
+### Autoscaling
+We use Azure App Service to host our service. It provides autoscaling capabilities, with support for autoscaling based on CPU percentage, memory usage, and HTTP queue length.
 
-## Data Engineering (HL)
+## Data Engineering
 
 All notebooks are under `Notebooks` folder.
 
@@ -111,7 +122,7 @@ Spark SQL offers high-performance, scalable data processing across diverse sourc
 
 AI tools, such as Copilot and ChatGPT, played a crucial role in streamlining the ETL pipeline by providing valuable insights and recommendations on data cleaning techniques, effective error handling strategies, and the selection of appropriate graph types for data analysis. These tools significantly enhanced the efficiency and quality of the data processing workflow, ultimately leading to more informed and accurate decision-making
 
-## Data Science (HL)
+## Data Science
 We have two intriguing findings that stand out from a data science perspective.
 
 ![Artist Comparison](./images/Artists_Comparison.png)
@@ -126,7 +137,7 @@ The second revelation comes from a line chart that traces the ebb and flow of so
 
 ## LLM (Lisa)
 
-## Infrastructure as Code (IaC) (MX)
+## Infrastructure as Code (IaC)
 Utilize an Infrastructure as Code (IaC) solution for infrastructure setup and management in Azure with Resource Manager (ARM) templates.
 
 IaC standardizes infrastructure deployment, fostering rapid, error-free scaling and collaboration through version control. This approach streamlines operations, optimizes costs, and ensures robust security and disaster recovery measures.
@@ -142,12 +153,12 @@ Using Infrastructure as Code (IaC) in Azure allows us to automate the provisioni
 ![ARM resource](<images/ARM resource.png>)
 
 
-## Continuous Integration and Continuous Delivery (CI/CD) (ML)
+## Continuous Integration and Continuous Delivery (CI/CD)
 We use GitHub Actions to implement Continuous Integration and Continuous Delivery (CI/CD) for our service. It provides a workflow to automate the build, test, and deployment of our application.
 * Python package: `python-app.yml` - This workflow will run every time a new commit is pushed to main branch. It will install the dependencies, format and lint the code, run the tests, and upload the test results to GitHub.
 * Build and deploy container app to Azure Web App: `main_HarmonyHarbor.yml` - This workflow will run every time a new commit is pushed to main branch. It will build the container image, push it to Azure Container Registry, and deploy it to Azure App Service.
 
-## GitHub Configurations (ML)
+## GitHub Configurations
 ### Github Actions
 We implemented two workflows in GitHub Actions:
 * `python-app.yml`: This workflow will run every time a new commit is pushed to main branch. It will install the dependencies, format and lint the code, run the tests, and upload the test results to GitHub.
@@ -158,9 +169,10 @@ We implemented two workflows in GitHub Actions:
 * `AzureAppService_ContainerPassword_aac379ebce6247ab9f1ca5883053939f`: The password for the Azure App Service container registry.
 
 ### Github Codespaces
-* `devcontainer.json`: This file is used to configure the Codespace. It specifies the Dockerfile to use, the extensions to install, and the commands to run when the Codespace is created.
+* `devcontainer.json`: This file is used to configure the Codespace. It specifies the `Dockerfile` to use, the extensions to install through `requirements.txt`, and the commands to run when the Codespace is created.
+* `launch.json`: This file is used to configure the debugger. It specifies the Python interpreter to use and the environment variables to set.
 
-## Security (ML)
+## Security 
 The security of our service is ensured by the following measures:
 * `Container Registry`: We use Azure Container Registry to store and manage our container images. It provides a private registry for our Docker container images, with support for all types of container deployments. It integrates with Azure Container Instances, it also supports Azure Active Directory for authentication, so we can control who has access to our images.
 * `Azure Key Vault`: We use Azure Key Vault to store and manage our application API tokens integrated with Azure Databricks and OpenAI. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
@@ -172,7 +184,7 @@ The security of our service is ensured by the following measures:
         secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
         secret_value = secret_client.get_secret("HLDB").value
     ```
-* `Azure Active Directory`: We use Azure Active Directory to manage our users and applications. It provides centralized identity management, with support for multi-factor authentication, single sign-on, and more. It also integrates with Azure Key Vault for authentication, so we can control who has access to our secrets.
+* `Azure Active Directory`: We use Azure Active Directory to manage our users and applications. It provides centralized identity management, with support for multi-factor authentication, single sign-on, and more. It also integrates with Azure Key Vault for authentication, so we can control who has access to our secrets. We created a user group `usergroup_harmonyharbor` and added all our team members to the group. We then granted the group access to the Azure resource group `706final`.
 * `Github Secrets`: We use Github Secrets to store and manage our application secrets required by CI/CD pipeline with Azure Deployment Center. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
 
     Github workflow example in `main_HarmonyHarbor.yml` in our code access Github Secrets:
@@ -184,3 +196,6 @@ The security of our service is ensured by the following measures:
             username: ${{ secrets.AzureAppService_ContainerUsername_9be46abaa20344908e13ba6bbe4d7065 }}
             password: ${{ secrets.AzureAppService_ContainerPassword_aac379ebce6247ab9f1ca5883053939f }}
     ```
+
+## Video Demo
+https://youtu.be/52EF1nJgdME
