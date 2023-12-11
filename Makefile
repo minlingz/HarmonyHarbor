@@ -18,6 +18,9 @@ lint:
 
 deploy:
 #deploy goes here
-		
+
+load_test:
+	./run_locust.sh
+
 all: 
 	install lint test format deploy

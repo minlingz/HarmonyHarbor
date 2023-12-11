@@ -38,21 +38,24 @@
             /* Ensures that the image fits without distortion */
         }
 
+
         .boxed {
             width: 50%;
             height: 100%;
             border: 1px solid green;
             display: flex;
             flex-direction: column;
+            overflow-y: auto;
+            /* Enable vertical scrollbar for long content */
         }
 
+        /* Make the box  */
         #chatbox {
             flex: 1;
             /* Make the chatbox flexible to take up remaining space */
             width: 100%;
             padding: 10px;
-            overflow-y: auto;
-            /* Enable vertical scrollbar for long content */
+
         }
 
         #userInput {
@@ -73,6 +76,23 @@
             font-family: monospace;
             font-size: 17px;
             line-height: 30px;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            /* Adjust this value to set the spacing between user and bot messages */
+        }
+
+        .userMessage {
+            text-align: right;
+        }
+
+        .botMessage {
+            text-align: left;
+        }
+
+        .userText {
+            float: right;
         }
 
         .userText span {
@@ -99,7 +119,9 @@
             <div>
                 <div id="chatbox">
                     <p class="botText">
-                        <span>Hi! I'm your Music Recommendation Chatbot.</span>
+                        <span>Hey! I'm your Music Recommendation Buddy! Excited to help you discover awesome tunes. Tell
+                            me what music you're into or how you're feeling, and I'll hit you up with three fantastic
+                            songs from my special collection! 🎶</span>
                     </p>
                 </div>
                 <div id="userInput">
@@ -107,22 +129,62 @@
                 </div>
             </div>
             <script>
+                // function getBotResponse() {
+                //     var rawText = $("#textInput").val();
+                //     var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+                //     $("#textInput").val("");
+                //     $("#chatbox").append(userHtml);
+                //     document
+                //         .getElementById("userInput")
+                //         .scrollIntoView({ block: "start", behavior: "smooth" });
+                //     $.get("/get", { msg: rawText }).done(function (data) {
+                //         var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                //         $("#chatbox").append(botHtml);
+                //         document
+                //             .getElementById("userInput")
+                //             .scrollIntoView({ block: "start", behavior: "smooth" });
+                //     });
+                // }
+                // $("#textInput").keypress(function (e) {
+                //     if (e.which == 13) {
+                //         getBotResponse();
+                //     }
+                // });
+
+                // function getBotResponse() {
+                //     var rawText = $("#textInput").val();
+                //     var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+                //     $("#textInput").val("");
+                //     $("#chatbox").append(userHtml);
+                //     document.getElementById("userInput").scrollIntoView({ block: "start", behavior: "smooth" });
+
+                //     $.get("/get", { msg: rawText }).done(function (data) {
+                //         // Replace newline characters with <br> tags
+                //         data = data.replace(/\n/g, "<br>");
+
+                //         var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                //         $("#chatbox").append(botHtml);
+                //         document.getElementById("userInput").scrollIntoView({ block: "start", behavior: "smooth" });
+                //     });
+                // }
+
                 function getBotResponse() {
                     var rawText = $("#textInput").val();
-                    var userHtml = '<p class="userText"><span>' + rawText + "</span></p>";
+                    var userHtml = '<div class="message userMessage"><p class="userText"><span>' + rawText + "</span></p></div>";
                     $("#textInput").val("");
                     $("#chatbox").append(userHtml);
-                    document
-                        .getElementById("userInput")
-                        .scrollIntoView({ block: "start", behavior: "smooth" });
+                    document.getElementById("userInput").scrollIntoView({ block: "start", behavior: "smooth" });
+
                     $.get("/get", { msg: rawText }).done(function (data) {
-                        var botHtml = '<p class="botText"><span>' + data + "</span></p>";
+                        // Replace newline characters with <br> tags
+                        data = data.replace(/\n/g, "<br>");
+
+                        var botHtml = '<div class="message botMessage"><p class="botText"><span>' + data + "</span></p></div>";
                         $("#chatbox").append(botHtml);
-                        document
-                            .getElementById("userInput")
-                            .scrollIntoView({ block: "start", behavior: "smooth" });
+                        document.getElementById("userInput").scrollIntoView({ block: "start", behavior: "smooth" });
                     });
                 }
+
                 $("#textInput").keypress(function (e) {
                     if (e.which == 13) {
                         getBotResponse();

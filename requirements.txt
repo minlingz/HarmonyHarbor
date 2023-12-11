@@ -6,3 +6,4 @@ azure-identity
 azure-keyvault-secrets
 openai
 pyspark
+locust == 2.19.1
