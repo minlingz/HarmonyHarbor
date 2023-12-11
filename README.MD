@@ -177,7 +177,7 @@ The security of our service is ensured by the following measures:
         secret_client = SecretClient(vault_url=key_vault_url, credential=credential)
         secret_value = secret_client.get_secret("HLDB").value
     ```
-* `Azure Active Directory`: We use Azure Active Directory to manage our users and applications. It provides centralized identity management, with support for multi-factor authentication, single sign-on, and more. It also integrates with Azure Key Vault for authentication, so we can control who has access to our secrets.
+* `Azure Active Directory`: We use Azure Active Directory to manage our users and applications. It provides centralized identity management, with support for multi-factor authentication, single sign-on, and more. It also integrates with Azure Key Vault for authentication, so we can control who has access to our secrets. We created a user group `usergroup_harmonyharbor` and added all our team members to the group. We then granted the group access to the Azure resource group `HarmonyHarbor`.
 * `Github Secrets`: We use Github Secrets to store and manage our application secrets required by CI/CD pipeline with Azure Deployment Center. It provides centralized key management, with access control, auditing, and logging features. It also integrates with Azure Active Directory for authentication, so we can control who has access to our secrets.
 
     Github workflow example in `main_HarmonyHarbor.yml` in our code access Github Secrets:
