@@ -45,11 +45,9 @@
 
 ### Harmony Harbor Microservice
 
-* Statistics Microservice
-It returns the SQL query results from the Delta Lake table `prepared_song_data` in Azure Databricks. It uses the `requests` library to make HTTP requests to the Azure Databricks REST API.
+* `Statistics` Microservice - It returns the SQL query results from the Delta Lake table `prepared_song_data` in Azure Databricks. It uses the `requests` library to make HTTP requests to the Azure Databricks REST API.
 
-* Chatbot Microservice
-It returns the song recommendations based on the user input. It uses the `requests` library to make HTTP requests to the OpenAI API.
+* `Chatbot` Microservice - It returns the song recommendations based on the user input. It uses the `requests` library to make HTTP requests to the OpenAI API.
 
 ### File Structure
 * `app.py`: This file contains the code for the Harmony Harbor service. It uses the Flask framework to handle the HTTP requests and responses.
