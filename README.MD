@@ -159,7 +159,16 @@ The second revelation comes from a line chart that traces the ebb and flow of so
 * `parameters.json`: This file contains the parameters for the Harmony Harbor service that are hosted in Azure Resource Group. It defines the parameters for the resources to be deployed.
 * `template.json`: This file contains the template for the Harmony Harbor service that are hosted in Azure Resource Group. It defines the resources to be deployed, their configurations, and the relationships between them.
 
-Here is the list of resources we deployed in Azure Resource Group:
+Here is the list of resources we deployed in Azure Resource Group `706final`:
+* `706registry`: This is the Azure Container Registry for the Harmony Harbor service.
+* `HarmonyHarborAppService`: This is the App Service for the Harmony Harbor service.
+* `706dev`: This is the App Service for the Harmony Harbor service Dev.
+* `DEk`: This is the Key Vault for the Harmony Harbor service.
+* `asp-HarmonyHarbor`: This is the App Service Plan for the Harmony Harbor service.
+* `HarmonyHarbor`: This is the Application Insights for the Harmony Harbor service.
+* `HarmonyHarbor`: This is the Harmony Harbor App service Template spec.
+
+
 ![Alt text](images/resource_group.png)
 
 Utilize an Infrastructure as Code (IaC) solution for infrastructure setup and management in Azure with Resource Manager (ARM) templates.
