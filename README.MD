@@ -153,6 +153,15 @@ The second revelation comes from a line chart that traces the ebb and flow of so
 * Utilized Azure Web App Service metrics board for monitoring performance. Overall, the application handled 60k responses in 5 hours with an average response time consistently below 0.1 seconds. CPU and memory usage are also monitored.
 
 ## Infrastructure as Code (IaC)
+
+### File
+* `ExportedTemplate-706final.zip`: This file contains the ARM template for the Harmony Harbor service that are hosted in Azure Resource Group. It defines the resources to be deployed, their configurations, and the relationships between them.
+* `parameters.json`: This file contains the parameters for the Harmony Harbor service that are hosted in Azure Resource Group. It defines the parameters for the resources to be deployed.
+* `template.json`: This file contains the template for the Harmony Harbor service that are hosted in Azure Resource Group. It defines the resources to be deployed, their configurations, and the relationships between them.
+
+Here is the list of resources we deployed in Azure Resource Group:
+![Alt text](images/resource_group.png)
+
 Utilize an Infrastructure as Code (IaC) solution for infrastructure setup and management in Azure with Resource Manager (ARM) templates.
 
 IaC standardizes infrastructure deployment, fostering rapid, error-free scaling and collaboration through version control. This approach streamlines operations, optimizes costs, and ensures robust security and disaster recovery measures.
